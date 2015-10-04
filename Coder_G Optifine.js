@@ -88,7 +88,7 @@ function updateVersion() {
                             try {
                                 net.zhuoweizhang.mcpelauncher.ScriptManager.setEnabled(modpeFile, false);
                                 net.zhuoweizhang.mcpelauncher.ScriptManager.setEnabled(modpeFile, true);
-                                clientMessage("[ACOM] The OPTIFINE Mod has been downloaded and enabled!");
+                                clientMessage("[ACOM] The OPTIFINE Mod has been downloaded and enabled, Please restart Blocklauncher Now!");
                                    
                             }
                             catch(err) {
