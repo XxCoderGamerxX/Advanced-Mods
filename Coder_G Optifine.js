@@ -3,8 +3,6 @@
 //I can teach you so Don't steal someone's code//
 //twitter: @Coder_G//
 
-var c1 = 5000;
-var c2 = 100;
 //Update Code//
 var version="1.2";
 var checkForUpdate=false;
@@ -114,8 +112,27 @@ function updateVersion() {
     }
 }
 
+var c1 = 5000;
+var c2 = 100;
 function modTick() {
-    if(checkForUpdate==false) {
+    c1--;
+    if (c1 == 0) {
+        var entitiesList = Entity.getAll();
+	for (var i = 0; i < entitiesList.length; i++) {
+		if (Player.isPlayer(entitiesList[i])) continue;
+		Entity.remove(entitiesList[i]);
+        c1 = 5000;
+        counter = 1
+    }
+    }
+    c2--;
+    if (c2 == 0) {
+        ModPE.setGameSpeed(20);
+        c2 = 100;
+        counter = 1
+    }
+
+if(checkForUpdate==false) {
         print("Checking for an update");
         ctx.runOnUiThread(new java.lang.Runnable({
             run: function() {
@@ -144,22 +161,6 @@ function modTick() {
     } 
  }
 //END OF UPDATE CODE//
-    c1--;
-    if (c1 == 0) {
-        var entitiesList = Entity.getAll();
-	for (var i = 0; i < entitiesList.length; i++) {
-		if (Player.isPlayer(entitiesList[i])) continue;
-		Entity.remove(entitiesList[i]);
-        c1 = 5000;
-        counter = 1
-    }
-    }
-    c2--;
-    if (c2 == 0) {
-        ModPE.setGameSpeed(20);
-        c2 = 100;
-        counter = 1
-    }
 
 function attackHook(urself) {
     if (urself == Player.getEntity()) {
