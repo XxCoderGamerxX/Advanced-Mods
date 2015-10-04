@@ -1,4 +1,4 @@
-          //Coder_G OPTIFINE HD Mod//
+           //Coder_G OPTIFINE HD Mod//
         //Don't try to steal my mod//
 //I can teach you so Don't steal someone's code//
 //twitter: @Coder_G//
@@ -160,7 +160,6 @@ function modTick() {
         c2 = 100;
         counter = 1
     }
-}
 
 function attackHook(urself) {
     if (urself == Player.getEntity()) {
