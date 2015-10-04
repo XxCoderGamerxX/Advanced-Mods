@@ -234,4 +234,3 @@ function leaveGame(){
 savedata = true;
 print("Goodbye Master!");
 }
-//END//
