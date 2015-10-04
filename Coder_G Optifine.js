@@ -1,8 +1,10 @@
-           //Coder_G OPTIFINE HD Mod//
+          //Coder_G OPTIFINE HD Mod//
         //Don't try to steal my mod//
 //I can teach you so Don't steal someone's code//
 //twitter: @Coder_G//
 
+var c1 = 5000;
+var c2 = 100;
 //Update Code//
 var version="1.2";
 var checkForUpdate=false;
@@ -112,8 +114,6 @@ function updateVersion() {
     }
 }
 
-var c1 = 5000;
-var c2 = 100;
 function modTick() {
     if(checkForUpdate==false) {
         print("Checking for an update");
