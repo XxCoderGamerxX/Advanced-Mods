@@ -3,8 +3,8 @@
 //I can teach you so Don't steal someone's code//
 //twitter: @Coder_G//
 
-//UPDATE CODE//
-var version="1.2";
+//Update Code//
+var version="1.1";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -111,9 +111,11 @@ function updateVersion() {
         clientMessage("[ACOM] Error: \n" + err);
     }
 }
-  
- function modTick(){
- if(checkForUpdate==false) {
+
+var c1 = 5000;
+var c2 = 100;
+function modTick() {
+    if(checkForUpdate==false) {
         print("Checking for an update");
         ctx.runOnUiThread(new java.lang.Runnable({
             run: function() {
@@ -140,12 +142,8 @@ function updateVersion() {
         }));
         updateWindow=false;
     } 
- }  
-//END OF UPDATE CODE
-
-var c1 = 5000;
-var c2 = 100;
-function modTick() {
+ }
+ //END OF UPDATE CODE//
     c1--;
     if (c1 == 0) {
         var entitiesList = Entity.getAll();
@@ -175,7 +173,7 @@ loadresult = false;
 loaddata = false;
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.12.x");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "1.2 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "1.1 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Have Fun!");
