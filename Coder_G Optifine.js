@@ -143,7 +143,7 @@ function modTick() {
         updateWindow=false;
     } 
  }
- //END OF UPDATE CODE//
+//END OF UPDATE CODE//
     c1--;
     if (c1 == 0) {
         var entitiesList = Entity.getAll();
@@ -180,11 +180,9 @@ counter = 0;
 loadresult = true;
 loaddata = true;
 if(loadresult = true){
-
 Block.defineBlock(2,"grass",[["dirt",0], ["grass",2], ["grass",2], ["grass",2],
 ["grass",2], ["grass",2]]);
 Block.setDestroyTime(2,0.3);
-
 Block.setShape(2, 0/16, 0, 0/16, 16/16, 1, 16/16);
 
 var Z = false
@@ -234,3 +232,4 @@ function leaveGame(){
 savedata = true;
 print("Goodbye Master!");
 }
+//END//
