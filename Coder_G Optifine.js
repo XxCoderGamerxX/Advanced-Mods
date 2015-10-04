@@ -4,8 +4,6 @@
 //twitter: @Coder_G//
 
 //UPDATE CODE//
-//Update Code 
- 
 var version="1.2";
 var checkForUpdate=false;
 var updateWindow=false;
