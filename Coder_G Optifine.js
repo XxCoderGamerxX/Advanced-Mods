@@ -4,7 +4,7 @@
 //twitter: @Coder_G//
 
 //Update Code//
-var version="1.1";
+var version="1.2";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
