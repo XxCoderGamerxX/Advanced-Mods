@@ -4,7 +4,7 @@
 //twitter: @Coder_G//
 
 //Update Code//
-var version="1.2";
+var version="1.3";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -34,7 +34,7 @@ var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
                     updateWindow=true;
                 }
                 else if(version+"\n"==checkedVersion){
-                clientMessage("There aren't any updates right now");
+                clientMessage("There aren't any new updates right now");
                 }
             }
             catch(err) {
@@ -55,7 +55,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ACOM] has an update!");
-        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis Update has a Bug fixes on button");
+        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis Update adds Entity Remove Indicator!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
@@ -88,7 +88,7 @@ function updateVersion() {
                             try {
                                 net.zhuoweizhang.mcpelauncher.ScriptManager.setEnabled(modpeFile, false);
                                 net.zhuoweizhang.mcpelauncher.ScriptManager.setEnabled(modpeFile, true);
-                                clientMessage("[ACOM] The OPTIFINE Mod has been downloaded and enabled, Please restart Blocklauncher Now!");
+                                clientMessage("[ACOM] The OPTIFINE Mod has been downloaded and enabled, §6§lPlease restart Blocklauncher Now!");
                                    
                             }
                             catch(err) {
@@ -121,9 +121,28 @@ function modTick() {
 	for (var i = 0; i < entitiesList.length; i++) {
 		if (Player.isPlayer(entitiesList[i])) continue;
 		Entity.remove(entitiesList[i]);
+		ModPE.showTipMessage(ChatColor.BOLD + ChatColor.RED + "Entities Removed");
         c1 = 5000;
         counter = 1
     }
+    }
+    if (c1 == 160) {
+    ModPE.showTipMessage(ChatColor.BOLD + ChatColor.GOLD + "5");
+    }
+    if (c1 == 140) {
+    ModPE.showTipMessage(ChatColor.BOLD + ChatColor.GOLD + "4");
+    }
+    if (c1 == 120) {
+    ModPE.showTipMessage(ChatColor.BOLD + ChatColor.GOLD + "3");
+    }
+    if (c1 == 100) {
+    ModPE.showTipMessage(ChatColor.BOLD + ChatColor.GOLD + "2");
+    }
+    if (c1 == 80) {
+    ModPE.showTipMessage(ChatColor.BOLD + ChatColor.GOLD + "1");
+    }
+    if (c1 == 60) {
+    ModPE.showTipMessage(ChatColor.BOLD + ChatColor.DARK_RED + "Removing Entities...");
     }
     c2--;
     if (c2 == 0) {
@@ -173,7 +192,7 @@ loadresult = false;
 loaddata = false;
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.12.x");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "1.2 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "1.1 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Have Fun!");
