@@ -1,10 +1,28 @@
+        
+        //Copyright (C) <2015>  <Coder_G>
+
+    //This program is free software: you can redistribute it and/or modify
+    //it under the terms of the GNU General Public License as published by
+    //the Free Software Foundation, either version 3 of the License, or
+    //(at your option) any later version.
+
+    //This program is distributed in the hope that it will be useful,
+    //but WITHOUT ANY WARRANTY; without even the implied warranty of
+    //MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    //GNU General Public License for more details.
+
+    //You should have received a copy of the GNU General Public License
+    //along with this program.  If not, see <http://www.gnu.org/licenses/>
+
+//No more stealers, if you will try to steal my code, goodluck dealing with copyright infringements//
+
           //Coder_G OPTIFINE HD Mod//
         //Don't try to steal my mod//
 //I can teach you so Don't steal someone's code//
 //twitter: @Coder_G//
 
 //Update Code//
-var version="1.3";
+var version="1.4";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -55,7 +73,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ACOM] has an update!");
-        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update added the Entity Remove Indicator!");
+        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update fixed the combat delay bugs!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
@@ -192,7 +210,7 @@ loadresult = false;
 loaddata = false;
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.12.x");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "1.3 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "1.4 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Have Fun!");
