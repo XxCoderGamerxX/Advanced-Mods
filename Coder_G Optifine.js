@@ -1,18 +1,18 @@
         
-        //Copyright (C) <2015>  <Coder_G>
+//  Copyright (C) <2015>  <Coder_G>
 
-    //This program is free software: you can redistribute it and/or modify
-    //it under the terms of the GNU General Public License as published by
-    //the Free Software Foundation, either version 3 of the License, or
-    //(at your option) any later version.
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
 
-    //This program is distributed in the hope that it will be useful,
-    //but WITHOUT ANY WARRANTY; without even the implied warranty of
-    //MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    //GNU General Public License for more details.
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
 
-    //You should have received a copy of the GNU General Public License
-    //along with this program.  If not, see <http://www.gnu.org/licenses/>
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 //No more stealers, if you will try to steal my code, goodluck dealing with copyright infringements//
 
@@ -22,7 +22,7 @@
 //twitter: @Coder_G//
 
 //Update Code//
-var version="1.4";
+var version="1.5";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -73,7 +73,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ACOM] has an update!");
-        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update fixed the combat delay bugs!");
+        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update fixed bugs!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
