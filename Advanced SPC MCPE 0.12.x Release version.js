@@ -1,3 +1,18 @@
+//  Copyright (C) <2015>  <Coder_G>
+
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>
+
                //MadeByCoder_G
         //Don't try to steal my work//
                     //+//
@@ -5,7 +20,7 @@
 //I can teach you so please don't steal codes//
 
 //Update Code//
-var version="4.0";
+var version="4.1";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -56,7 +71,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ASPC] has an update!");
-        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis Update has a Bug fixes on button");
+        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis current update fixed the trails delay on some devices");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
@@ -89,7 +104,7 @@ function updateVersion() {
                             try {
                                 net.zhuoweizhang.mcpelauncher.ScriptManager.setEnabled(modpeFile, false);
                                 net.zhuoweizhang.mcpelauncher.ScriptManager.setEnabled(modpeFile, true);
-                                clientMessage("[ASPC] The OPTIFINE Mod has been downloaded and enabled!");
+                                clientMessage("[ASPC] The OPTIFINE Mod has been downloaded and enabled!" + ChatColor.GOLD + "Please Restart Blocklauncher now!");
                                    
                             }
                             catch(err) {
@@ -117,7 +132,7 @@ var Z = false
 
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Single Player Commands for §4§l0.12.x");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "4.0 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "4.1 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Use §2§l/help 1");
@@ -133,8 +148,8 @@ GUIButton = new android.widget.PopupWindow();
 var layoutButton = new android.widget.LinearLayout(ctx);
 layoutButton.setOrientation(android.widget.LinearLayout.VERTICAL);
 GUIButton.setContentView(layoutButton);
-GUIButton.setWidth(35);
-GUIButton.setHeight(40);
+GUIButton.setWidth(50);
+GUIButton.setHeight(45);
 var btnButton = new android.widget.Button(ctx);
 layoutButton.addView(btnButton);
 btnButton.setText("♦");
