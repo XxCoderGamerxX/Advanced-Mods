@@ -22,7 +22,7 @@
 //twitter: @Coder_G//
 
 //Update Code//
-var version="1.5";
+var version="1.6";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -73,7 +73,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ACOM] has an update!");
-        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update fixed bugs!");
+        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update fixed a few bugs!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
@@ -210,7 +210,7 @@ loadresult = false;
 loaddata = false;
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.12.x");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "1.5 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "1.6 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Have Fun!");
@@ -250,7 +250,7 @@ Z = true;
 }
 else if(Z==true)
 {
-ModPE.resetFov(80);
+ModPE.resetFov();
 Z = false;
 }
 }
