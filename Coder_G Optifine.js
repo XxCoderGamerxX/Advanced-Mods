@@ -1,4 +1,3 @@
-        
 //  Copyright (C) <2015>  <Coder_G>
 
 //  This program is free software: you can redistribute it and/or modify
@@ -22,7 +21,7 @@
 //twitter: @Coder_G//
 
 //Update Code//
-var version="1.6";
+var version="1.7";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -73,7 +72,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ACOM] has an update!");
-        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update fixed a few bugs!");
+        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update added the command toggle for Auto Entity Remover feature!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
@@ -130,9 +129,24 @@ function updateVersion() {
     }
 }
 
+var t1 = false;
 var c1 = 5000;
 var c2 = 100;
+
+function procCmd(c){
+var cmd = c.split(" ");
+if(cmd[0] == "auto" && cmd[1] == "entity" && cmd[2] == "remover" && cmd[3] == "on"){
+t1 = true;
+clientMessage(ChatColor.GOLD + "Auto Entity Remover" + ChatColor.GREEN + " " + "Enabled" + "!");
+}
+if(cmd[0] == "auto" && cmd[1] == "entity" && cmd[2] == "remover" && cmd[3] == "off"){
+t1 = false;
+clientMessage(ChatColor.GOLD + "Auto Entity Remover" + ChatColor.RED + " " + "Disabled" + "!");
+}
+}
+
 function modTick() {
+if(t1){
     c1--;
     if (c1 == 0) {
         var entitiesList = Entity.getAll();
@@ -142,6 +156,7 @@ function modTick() {
 		ModPE.showTipMessage(ChatColor.BOLD + ChatColor.RED + "Entities Removed");
         c1 = 5000;
         counter = 1
+    }
     }
     }
     if (c1 == 160) {
@@ -210,7 +225,7 @@ loadresult = false;
 loaddata = false;
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.12.x");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "1.6 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "1.7 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Have Fun!");
@@ -250,7 +265,7 @@ Z = true;
 }
 else if(Z==true)
 {
-ModPE.resetFov();
+ModPE.resetFov(80);
 Z = false;
 }
 }
