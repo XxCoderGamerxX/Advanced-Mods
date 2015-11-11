@@ -21,7 +21,7 @@
 //twitter: @Coder_G//
 
 //Update Code//
-var version="1.7";
+var version="1.8";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -72,7 +72,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ACOM] has an update!");
-        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update added the command toggle for Auto Entity Remover feature!");
+        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update added the command toggles");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
@@ -130,6 +130,7 @@ function updateVersion() {
 }
 
 var t1 = false;
+var t2 = false;
 var c1 = 5000;
 var c2 = 100;
 
@@ -142,6 +143,20 @@ clientMessage(ChatColor.GOLD + "Auto Entity Remover" + ChatColor.GREEN + " " + "
 if(cmd[0] == "auto" && cmd[1] == "entity" && cmd[2] == "remover" && cmd[3] == "off"){
 t1 = false;
 clientMessage(ChatColor.GOLD + "Auto Entity Remover" + ChatColor.RED + " " + "Disabled" + "!");
+}
+if(cmd[0] == "combat" && cmd[1] == "on"){
+t2 = true;
+clientMessage(ChatColor.GOLD + "Combat feature" + ChatColor.GREEN + " " + "Enabled" + "!");
+}
+if(cmd[0] == "combat" && cmd[1] == "off"){
+t2 = false;
+clientMessage(ChatColor.GOLD + "Combat feature" + ChatColor.RED + " " + "Disabled" + "!");
+}
+if(cmd[0] == "help" && cmd[1] == "1"){
+clientMessage(" §6§l/auto entity remover on/off §3- To toggle entity remover on/off")
+}
+if(cmd[0] == "help" && cmd[1] == "1"){
+clientMessage(" §6§l/combat on/off §3- To toggle combat feature on/off")
 }
 }
 
@@ -215,9 +230,11 @@ if(checkForUpdate==false) {
 //END OF UPDATE CODE//
 
 function attackHook(urself) {
+if(t2){
     if (urself == Player.getEntity()) {
         ModPE.setGameSpeed(7);
         }
+    }
     }
 
 savedata = false;
@@ -225,10 +242,10 @@ loadresult = false;
 loaddata = false;
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.12.x");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "1.7 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "1.8 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
-clientMessage("§6Have Fun!");
+clientMessage("§6§lUse /help 1 and Have Fun!");
 counter = 0;
 loadresult = true;
 loaddata = true;
