@@ -21,7 +21,7 @@
 //twitter: @Coder_G//
 
 //Update Code//
-var version="1.8";
+var version="1.9";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -72,7 +72,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ACOM] has an update!");
-        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update added the command toggles");
+        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update has 0.13.1 full support!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
