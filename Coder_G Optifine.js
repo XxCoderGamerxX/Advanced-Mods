@@ -21,7 +21,7 @@
 //twitter: @Coder_G//
 
 //Update Code//
-var version="1.9";
+var version="2.0";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
