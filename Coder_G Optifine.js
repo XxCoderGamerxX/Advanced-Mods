@@ -72,7 +72,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ACOM] has an update!");
-        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update has 0.13.1 full support!");
+        upd.setMessage("[ACOM] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nYour current Update has 0.14.0 full support!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
@@ -165,10 +165,10 @@ if(t1){
     c1--;
     if (c1 == 0) {
         var entitiesList = Entity.getAll();
-	for (var i = 0; i < entitiesList.length; i++) {
-		if (Player.isPlayer(entitiesList[i])) continue;
-		Entity.remove(entitiesList[i]);
-		ModPE.showTipMessage(ChatColor.BOLD + ChatColor.RED + "Entities Removed");
+    for (var i = 0; i < entitiesList.length; i++) {
+        if (Player.isPlayer(entitiesList[i])) continue;
+        Entity.remove(entitiesList[i]);
+        ModPE.showTipMessage(ChatColor.BOLD + ChatColor.RED + "Entities Removed");
         c1 = 5000;
         counter = 1
     }
@@ -241,8 +241,8 @@ savedata = false;
 loadresult = false;
 loaddata = false;
 function newLevel(){
-clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.12.x");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "1.9 RELEASE");
+clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.14.0");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "2.0 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6§lUse /help 1 and Have Fun!");
