@@ -71,7 +71,8 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ASPC] has an update!");
-        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis current update fixed the trails delay on some devices");
+        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis current update added the give,timeset,effect,lvl,and weather commands
+        it also reduced the total lines of codes from 1231 to 641!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
