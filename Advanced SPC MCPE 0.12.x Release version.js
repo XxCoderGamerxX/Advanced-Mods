@@ -20,7 +20,7 @@
 //I can teach you so please don't steal codes//
 
 //Update Code//
-var version="4.1";
+var version="4.2";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -31,7 +31,7 @@ var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
     var r  = new java.lang.Runnable() {
         run: function() {
             try {
-                var urls= new java.net.URL(" https://raw.githubusercontent.com/XxCoderGamerxX/Advanced-Mods/master/Advanced%20SPC%20MCPE%200.12.x%20Release%20version.txt ");
+                var urls= new java.net.URL(" https://github.com/XxCoderGamerxX/Advanced-Mods/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version ");
                 var check = urls.openConnection();
                 check.setRequestMethod("GET");
                 check.setDoOutput(true);
@@ -82,7 +82,7 @@ function updateVersion() {
                 var ru  = new java.lang.Runnable() {
                     run: function() {
                         try {
-                            var urls = new java.net.URL(" https://raw.githubusercontent.com/XxCoderGamerxX/Advanced-Mods/master/Coder_G%20Optifine.js ");
+                            var urls = new java.net.URL(" https://github.com/XxCoderGamerxX/Advanced-Mods/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version.js ");
                             var check = urls.openConnection();
                             check.setRequestMethod("GET");
                             check.setDoOutput(true);
@@ -95,7 +95,7 @@ function updateVersion() {
                                 updateMod += new java.lang.String(typeb, 0, byteCount);               
                             }
                             var modpeFolder = ctx.getDir("modscripts", 0);
-                            var modpeFile = new java.io.File(modpeFolder, "Advanced SPC MCPE 0.12.x Release version.js");
+                            var modpeFile = new java.io.File(modpeFolder, "Advanced SPC MCPE 0.14.0 Release version.js");
                             var update = new java.io.PrintWriter(modpeFile);
                             update.write(updateMod);
                             update.flush();
@@ -131,8 +131,8 @@ function updateVersion() {
 var Z = false
 
 function newLevel(){
-clientMessage(ChatColor.AQUA + "Advanced Single Player Commands for §4§l0.12.x");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "4.1 RELEASE");
+clientMessage(ChatColor.AQUA + "Advanced Single Player Commands for 0.14.0");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "4.2 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Use §2§l/help 1");
@@ -228,6 +228,82 @@ Level.setGameMode(1);
 if(cmd[0] == "gamemode" && cmd[1] == "1") {
 clientMessage("§6§lGamemode has been changed to Creative!");
 }
+if(cmd[0] == "rain") {
+Level.setRainLevel(1);
+}
+if(cmd[0] == "rain") {
+clientMessage("§7§lYou set the weather to rain");
+}
+if(cmd[0] == "lightning") {
+Level.setLightningLevel(1);
+}
+if(cmd[0] == "lightning") {
+clientMessage("§7§lYou set the weather to Lightning");
+}
+if(cmd[0] =="weather" && cmd[1] == "stop") {
+Level.setRainLevel(0);
+Level.setLightningLevel(0);
+}
+if(cmd[0] == "weather" && cmd[1] == "stop") {
+clientMessage("§2§lWeather set to normal");
+}
+var cline=c.split(" ");
+        switch(cline[0]) {
+case "give":
+          if(!parseInt(cline[2])) {
+                 clientMessage("Use: §f/give §f<item> §f<amount> §f[damage]");
+          } else if(!parseInt(cline[1])) {
+                 clientMessage("§4§lWOAH! THAT ITEM DOESN'T EXIST. §c\"" + cline[1] + "\"");
+          } else {
+          Player.addItemInventory(cline[1], cline[2], cline[3]);
+          clientMessage("§b[§f" +cline[1] + "§b]§f" + " * " + cline[2] + " §2§lgiven §7§lto §3§l" + Player.getName(getPlayerEnt()));
+          break;
+          }
+          }
+ //give end//
+//Player Level//
+    switch(cline[0]) {
+        //lvl
+         case "lvl":
+          if(!parseInt(cline[1])) {
+                 clientMessage("Use: §f/lvl §2<value>");
+          } else if(!parseInt(cline[1])) {
+                 clientMessage("");
+          } else {
+          Player.setLevel(cline[0]);
+          clientMessage("§7Your level has been changed to §e " + cline[1] + "§7!");
+          break;
+          }
+          }
+//Player Level End//
+//timeset//
+        switch(cline[0]) {
+         case "timeset":
+          if(!parseInt(cline[1])) {
+                 clientMessage("Use: §f/timeset §b<seconds> §4§lonly 1 to 9999999 can be used");
+          } else if(!parseInt(cline[1])) {
+                 clientMessage("§7The value you entered §c" + cline[1] + "§4 is invalid");
+          } else {
+          Level.setTime(cline[1]);
+          clientMessage("§7Time set to §b " +cline[1]);
+          break;
+          }
+          }
+//timeset end//
+//effect command//
+        switch(cline[0]) {
+        //effect
+          case "effect":
+          if(!parseInt(cline[1])) {
+                 clientMessage("Use: §f/effect §b<id> §6<seconds> §e[level]\nUse: §f//effect <id>  to remove the effect");
+          } else if(!parseInt(cline[1])) {
+                 clientMessage("§7The value you entered is §4invalid §c\"" + cline[1] + "\"");
+          } else {
+          Entity.addEffect(getPlayerEnt(),cline[1], cline[2], cline[3]);
+          clientMessage("§7Effect" + "§b[§f" +cline[1] + "§b]§7 for§e " + cline[2] + " §7given duration §eLevel " + cline[3]);
+          break;
+          } 
+          }
 if(cmd[0] == "redstone" && cmd[1] == "on") {
 redstoneset = true;
 }
@@ -365,622 +441,6 @@ if(cmd[0] == "kill")
 {
 clientMessage("§4§lYou Died!")
 }
-if(cmd[0] == "day")
-{
-Level.setTime(0);
-}
-if(cmd[0] == "day")
-{
-clientMessage("§2Time Set To §e§lDay!")
-}
-if(cmd[0] == "night")
-{
-Level.setTime(14000);
-}
-if(cmd[0] == "night")
-{
-clientMessage("§2Time Set To §9§lNight")
-}
-if(cmd[0] == "speed" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,0);
-}
-if(cmd[0] == "speed" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,1);
-}
-if(cmd[0] == "speed" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,2);
-}
-if(cmd[0] == "speed" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,3);
-}
-if(cmd[0] == "speed" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,4);
-}
-if(cmd[0] == "speed" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,5);
-}
-if(cmd[0] == "speed" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,6);
-}
-if(cmd[0] == "speed" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,7);
-}
-if(cmd[0] == "speed" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,8);
-}
-if(cmd[0] == "speed" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),1,6000,9);
-}
-if(cmd[0] == "slow" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,0);
-}
-if(cmd[0] == "slow" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,1);
-}
-if(cmd[0] == "slow" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,2);
-}
-if(cmd[0] == "slow" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,3);
-}
-if(cmd[0] == "slow" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,4);
-}
-if(cmd[0] == "slow" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,5);
-}
-if(cmd[0] == "slow" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,6);
-}
-if(cmd[0] == "slow" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,7);
-}
-if(cmd[0] == "slow" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,8);
-}
-if(cmd[0] == "slow" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),2,6000,9);
-}
-if(cmd[0] == "haste" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,0);
-}
-if(cmd[0] == "haste" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,1);
-}
-if(cmd[0] == "haste" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,2);
-}
-if(cmd[0] == "haste" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,3);
-}
-if(cmd[0] == "haste" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,4);
-}
-if(cmd[0] == "haste" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,5);
-}
-if(cmd[0] == "haste" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,6);
-}
-if(cmd[0] == "haste" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,7);
-}
-if(cmd[0] == "haste" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,8);
-}
-if(cmd[0] == "haste" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),3,6000,9);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "1")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,0);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "2")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,1);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "3")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,2);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "4")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,3);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "5")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,4);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "6")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,5);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "7")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,6);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "8")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,7);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "9")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,8);
-}
-if(cmd[0] == "mining" && cmd[1] == "fatigue" && cmd[2] == "10")
-{
-Entity.addEffect(getPlayerEnt(),4,6000,9);
-}
-if(cmd[0] == "strength" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,0);
-}
-if(cmd[0] == "strength" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,1);
-}
-if(cmd[0] == "strength" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,2);
-}
-if(cmd[0] == "strength" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,3);
-}
-if(cmd[0] == "strength" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,4);
-}
-if(cmd[0] == "strength" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,5);
-}
-if(cmd[0] == "strength" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,6);
-}
-if(cmd[0] == "strength" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,7);
-}
-if(cmd[0] == "strength" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,8);
-}
-if(cmd[0] == "strength" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),5,6000,9);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "1")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,0);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "2")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,1);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "3")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,2);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "4")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,3);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "5")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,4);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "6")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,5);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "7")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,6);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "8")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,7);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "9")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,8);
-}
-if(cmd[0] == "instant" && cmd[1] == "health" && cmd[2] == "10")
-{
-Entity.addEffect(getPlayerEnt(),6,6000,9);
-}
-if(cmd[0] == "jump" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,0);
-}
-if(cmd[0] == "jump" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,1);
-}
-if(cmd[0] == "jump" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,2);
-}
-if(cmd[0] == "jump" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,3);
-}
-if(cmd[0] == "jump" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,4);
-}
-if(cmd[0] == "jump" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,5);
-}
-if(cmd[0] == "jump" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,6);
-}
-if(cmd[0] == "jump" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,7);
-}
-if(cmd[0] == "jump" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,8);
-}
-if(cmd[0] == "jump" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),8,6000,9);
-}
-if(cmd[0] == "nausea" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,0);
-}
-if(cmd[0] == "nausea" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,1);
-}
-if(cmd[0] == "nausea" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,2);
-}
-if(cmd[0] == "nausea" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,3);
-}
-if(cmd[0] == "nausea" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,4);
-}
-if(cmd[0] == "nausea" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,5);
-}
-if(cmd[0] == "nausea" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,6);
-}
-if(cmd[0] == "nausea" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,7);
-}
-if(cmd[0] == "nausea" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,8);
-}
-if(cmd[0] == "nausea" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),9,6000,9);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,0);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,1);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,2);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,3);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,4);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,5);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,6);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,7);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,8);
-}
-if(cmd[0] == "regeneration" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,9);
-}
-if(cmd[0] == "resistance" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),11,6000,0);
-}
-if(cmd[0] == "resistance" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),11,6000,1);
-}
-if(cmd[0] == "resistance" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),11,6000,2);
-}
-if(cmd[0] == "resistance" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),11,6000,3);
-}
-if(cmd[0] == "resistance" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),11,6000,4);
-}
-if(cmd[0] == "resistance" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),11,6000,5);
-}
-if(cmd[0] == "resistance" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),11,6000,6);
-}
-if(cmd[0] == "resistance" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),11,6000,7);
-}
-if(cmd[0] == "resistance" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),11,6000,8);
-}
-if(cmd[0] == "resistance" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,9);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "1")
-{
-Entity.addEffect(getPlayerEnt(),12,6000,0);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "2")
-{
-Entity.addEffect(getPlayerEnt(),12,6000,1);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "3")
-{
-Entity.addEffect(getPlayerEnt(),12,6000,2);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "4")
-{
-Entity.addEffect(getPlayerEnt(),12,6000,3);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "5")
-{
-Entity.addEffect(getPlayerEnt(),12,6000,4);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "6")
-{
-Entity.addEffect(getPlayerEnt(),12,6000,5);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "7")
-{
-Entity.addEffect(getPlayerEnt(),12,6000,6);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "8")
-{
-Entity.addEffect(getPlayerEnt(),12,6000,7);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "9")
-{
-Entity.addEffect(getPlayerEnt(),12,6000,8);
-}
-if(cmd[0] == "fire" && cmd[1] == "resistance" && cmd[2] == "10")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,9);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "1")
-{
-Entity.addEffect(getPlayerEnt(),13,6000,0);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "2")
-{
-Entity.addEffect(getPlayerEnt(),13,6000,1);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "3")
-{
-Entity.addEffect(getPlayerEnt(),13,6000,2);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "4")
-{
-Entity.addEffect(getPlayerEnt(),13,6000,3);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "5")
-{
-Entity.addEffect(getPlayerEnt(),13,6000,4);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "6")
-{
-Entity.addEffect(getPlayerEnt(),13,6000,5);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "7")
-{
-Entity.addEffect(getPlayerEnt(),13,6000,6);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "8")
-{
-Entity.addEffect(getPlayerEnt(),13,6000,7);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "9")
-{
-Entity.addEffect(getPlayerEnt(),13,6000,8);
-}
-if(cmd[0] == "water" && cmd[1] == "breathing" && cmd[2] == "10")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,9);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),14,6000,0);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),14,6000,1);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),14,6000,2);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),14,6000,3);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),14,6000,4);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),14,6000,5);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),14,6000,6);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),14,6000,7);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),14,6000,8);
-}
-if(cmd[0] == "invisibility" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,9);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),21,6000,0);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),21,6000,1);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),21,6000,2);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),21,6000,3);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),21,6000,4);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),21,6000,5);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),21,6000,6);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),21,6000,7);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),21,6000,8);
-}
-if(cmd[0] == "healthboost" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,9);
-}
-if(cmd[0] == "absorption" && cmd[1] == "1")
-{
-Entity.addEffect(getPlayerEnt(),22,6000,0);
-}
-if(cmd[0] == "absorption" && cmd[1] == "2")
-{
-Entity.addEffect(getPlayerEnt(),22,6000,1);
-}
-if(cmd[0] == "absorption" && cmd[1] == "3")
-{
-Entity.addEffect(getPlayerEnt(),22,6000,2);
-}
-if(cmd[0] == "absorption" && cmd[1] == "4")
-{
-Entity.addEffect(getPlayerEnt(),22,6000,3);
-}
-if(cmd[0] == "absorption" && cmd[1] == "5")
-{
-Entity.addEffect(getPlayerEnt(),22,6000,4);
-}
-if(cmd[0] == "absorption" && cmd[1] == "6")
-{
-Entity.addEffect(getPlayerEnt(),22,6000,5);
-}
-if(cmd[0] == "absorption" && cmd[1] == "7")
-{
-Entity.addEffect(getPlayerEnt(),22,6000,6);
-}
-if(cmd[0] == "absorption" && cmd[1] == "8")
-{
-Entity.addEffect(getPlayerEnt(),22,6000,7);
-}
-if(cmd[0] == "absorption" && cmd[1] == "9")
-{
-Entity.addEffect(getPlayerEnt(),22,6000,8);
-}
-if(cmd[0] == "absorption" && cmd[1] == "10")
-{
-Entity.addEffect(getPlayerEnt(),10,6000,9);
-}
 if(cmd[0] == "effects" && cmd[1] == "clear") {
 Entity.removeAllEffects(getPlayerEnt());
 }
@@ -994,7 +454,7 @@ if(cmd[0] == "help" && cmd[1] == "1") {
 clientMessage(" §6§l/gamemode 0 §3- To Change Gamemode To §4§lSurvival")
 }
 if(cmd[0] == "help" && cmd[1] == "1") {
-clientMessage(" §e§l/day §3- Time set to §e§lDay")
+clientMessage(" §6§l/timeset §3- Sets time to your §2world")
 }
 if(cmd[0] == "help" && cmd[1] == "1") {
 clientMessage(" §6§l/help 2 §3- To see the next page")
@@ -1003,13 +463,13 @@ if(cmd[0] == "help" && cmd[1] == "2") {
 clientMessage(" §6§lhelp page §2§l2§8§l/§2§l3")
 }
 if(cmd[0] == "help" && cmd[1] == "2") {
-clientMessage(" §9§l/night §3- Time set to §9§lNight")
+clientMessage(" §9§l/effect §3- adds effect to §2yourself");
 }
 if(cmd[0] == "help" && cmd[1] == "2") {
 clientMessage(" §4§l/heal §3- to recover §4§lHealth")
 }
 if(cmd[0] == "help" && cmd[1] == "2") {
-clientMessage(" §8§l/kill §3- To commit §0§lSuicide")
+clientMessage(" §8§l/kill §3- To commit §4§lSuicide")
 }
 if(cmd[0] == "help" && cmd[1] == "2") {
 clientMessage(" §6§l/set spawn §3- To set the §2§lworld spawn §6§lon your coordinates")
@@ -1043,6 +503,9 @@ clientMessage(" §6§lhelp page §4§l4§8§l/§4§l4")
 }
 if(cmd[0] == "help" && cmd[1] == "4") {
 clientMessage(" §6§l/Particles 1/3 §3-to show particle commands")
+}
+if(cmd[0] == "help" && cmd[1] == "4") {
+clientMessage(" §9§l/give §3- gives an item to urself")
 }
 if(cmd[0] == "Particles" && cmd[1] == "1") {
 clientMessage(" §6§lhelp page §2§l1§8§l/§2§l3")
@@ -1093,65 +556,7 @@ if(cmd[0] == "Particles" && cmd[1] == "3") {
 clientMessage(" §6§l/Particles on/off §3- to toggle All particles on/off")
 }
 if(cmd[0] == "help" && cmd[1] == "4") {
-clientMessage(" §6§l/effects §3- To list effect commands")
-}
-if(cmd[0] == "effects")
-{
-clientMessage(" §6/effects 1/4 §3- To show effects list from 1/4")
-}
-if(cmd[0] == "effects" && cmd[1] == "1") {
-clientMessage(" §6/speed 1-10 §3- To get speed effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "1") {
-clientMessage(" §6/slow 1-10 §3- To get slow effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "1") {
-clientMessage(" §6/haste 1-10 §3- To get haste effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "1") {
-clientMessage(" §6/mining fatigue 1-10 §3- To get miningfatigue effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "1") {
-clientMessage(" §6/speed 1-10 §3- To get speed effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "1") {
-clientMessage(" §6/strength 1-10 §3- To get strength effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "2") {
-clientMessage(" §6/instant health 1-10 §3- To get instanthealth effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "2") {
-clientMessage(" §6/jump 1-10 §3- To get jump effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "2") {
-clientMessage(" §6/nausea 1-10 §3- To get nausea effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "2") {
-clientMessage(" §6/speed 1-10 §3- To get speed effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "2") {
-clientMessage(" §6/regeneration 1-10 §3- To get regeneration effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "3") {
-clientMessage(" §6/resistance 1-10 §3- To get resistance effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "3") {
-clientMessage(" §6/fire resistance.1-10 §3- To get fireresistance effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "3") {
-clientMessage(" §6/water breathing 1-10 §3- To get waterbreathing effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "3") {
-clientMessage(" §6/invisibility 1-10 §3- To get invisibility effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "4") {
-clientMessage(" §6/healthboost 1-10 §3- To get healthboost effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "4") {
-clientMessage(" §6/absorption 1-10 §3- To get absorption effects from 1-10")
-}
-if(cmd[0] == "effects" && cmd[1] == "4") {
-clientMessage(" §6/effects clear §3- To clear effects")
+clientMessage(" §6§l/lvl §3- sets your current level")
 }
 if(cmd[0] == "credits")
 {
@@ -1232,3 +637,5 @@ function leaveGame()
 {
 print("Goodbye Master!");
 }
+
+//credits for Schoki :D//
