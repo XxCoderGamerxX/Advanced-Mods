@@ -31,7 +31,7 @@ var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
     var r  = new java.lang.Runnable() {
         run: function() {
             try {
-                var urls= new java.net.URL(" https://github.com/XxCoderGamerxX/Advanced-Mods/blob/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version ");
+                var urls= new java.net.URL(" https://raw.githubusercontent.com/XxCoderGamerxX/Advanced-Mods/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version ");
                 var check = urls.openConnection();
                 check.setRequestMethod("GET");
                 check.setDoOutput(true);
@@ -83,7 +83,7 @@ function updateVersion() {
                 var ru  = new java.lang.Runnable() {
                     run: function() {
                         try {
-                            var urls = new java.net.URL(" https://github.com/XxCoderGamerxX/Advanced-Mods/blob/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version.js ");
+                            var urls = new java.net.URL(" https://raw.githubusercontent.com/XxCoderGamerxX/Advanced-Mods/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version.js ");
                             var check = urls.openConnection();
                             check.setRequestMethod("GET");
                             check.setDoOutput(true);
