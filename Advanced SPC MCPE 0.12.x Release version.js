@@ -20,7 +20,7 @@
 //I can teach you so please don't steal codes//
 
 //Update Code//
-var version="4.2";
+var version="4.3";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -31,7 +31,7 @@ var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
     var r  = new java.lang.Runnable() {
         run: function() {
             try {
-                var urls= new java.net.URL(" https://github.com/XxCoderGamerxX/Advanced-Mods/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version ");
+                var urls= new java.net.URL(" https://github.com/XxCoderGamerxX/Advanced-Mods/blob/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version ");
                 var check = urls.openConnection();
                 check.setRequestMethod("GET");
                 check.setDoOutput(true);
@@ -71,7 +71,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ASPC] has an update!");
-        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis current update added the give,timeset,effect,lvl,and weather commands
+        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis current update added the give,timeset,effect,lvl,and weather commands,
         it also reduced the total lines of codes from 1231 to 641!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
@@ -83,7 +83,7 @@ function updateVersion() {
                 var ru  = new java.lang.Runnable() {
                     run: function() {
                         try {
-                            var urls = new java.net.URL(" https://github.com/XxCoderGamerxX/Advanced-Mods/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version.js ");
+                            var urls = new java.net.URL(" https://github.com/XxCoderGamerxX/Advanced-Mods/blob/master/Advanced%20SPC%20Mod%200.14.x%20Release%20version.js ");
                             var check = urls.openConnection();
                             check.setRequestMethod("GET");
                             check.setDoOutput(true);
@@ -133,7 +133,7 @@ var Z = false
 
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Single Player Commands for 0.14.0");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "4.2 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "4.3 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Use §2§l/help 1");
