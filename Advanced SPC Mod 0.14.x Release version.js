@@ -1,4 +1,4 @@
-//  Copyright (C) <2016>  <Coder_G>
+//  Copyright (C) <2015>  <Coder_G>
 
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -71,8 +71,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ASPC] has an update!");
-        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis current update added the give,timeset,effect,lvl,and weather commands,
-        it also reduced the total lines of codes from 1231 to 641!");
+        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis current update added the give,timeset,effect,lvl,and weather commands it also reduced the total lines of codes from 1231 to 641!");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
