@@ -15,12 +15,10 @@
 
                //MadeByCoder_G
         //Don't try to steal my work//
-                    //+//
-           //CODER_G optifine Mod//
 //I can teach you so please don't steal codes//
 
 //Update Code//
-var version="4.3";
+var version="4.4";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -71,7 +69,7 @@ function updateVersion() {
     try {
         var upd = new android.app.AlertDialog.Builder(ctx);
         upd.setTitle("[ASPC] has an update!");
-        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis current update added the give,timeset,effect,lvl,and weather commands it also reduced the total lines of codes from 1231 to 641!");
+        upd.setMessage("[ASPC] has an update!\nDo you want to update it now?\nCurrent version: " + version + "\nNew version: " + newUpdate + "\nThis current update removed Coder_G Optifine code to prevent from colliding with the Advanced Coder_G Optifine mod");
         upd.setNegativeButton("Nope", new android.content.DialogInterface.OnClickListener() {
             onClick: function(par1) {
             dialog.dismiss(); 
@@ -128,56 +126,15 @@ function updateVersion() {
     }
 }
 
-var Z = false
 
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Single Player Commands for 0.14.0");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "4.3 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "4.4 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Use §2§l/help 1");
 counter = 0;
-
-var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get(); 
-ctx.runOnUiThread(new java.lang.Runnable(){
- 
-run: function(){
- 
-try{
-GUIButton = new android.widget.PopupWindow();
-var layoutButton = new android.widget.LinearLayout(ctx);
-layoutButton.setOrientation(android.widget.LinearLayout.VERTICAL);
-GUIButton.setContentView(layoutButton);
-GUIButton.setWidth(50);
-GUIButton.setHeight(45);
-var btnButton = new android.widget.Button(ctx);
-layoutButton.addView(btnButton);
-btnButton.setText("♦");
-btnButton.setOnClickListener(new android.view.View.OnClickListener({ 
-onClick: function(viewarg)
-{
-if(Z==false)
-{
-ModPE.setFov(20);
-Z = true;
 }
-else if(Z==true)
-{
-ModPE.resetFov(80);
-Z = false;
-}
-}
-}));
-GUIButton.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.RIGHT | android.view.Gravity.BOTTOM, 0, 0);
-}
-catch(e)
-{
-print("Zooming Failed!");
-}
-}
-})
-}
-//END//
 
 var path = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
 
@@ -227,6 +184,12 @@ Level.setGameMode(1);
 }
 if(cmd[0] == "gamemode" && cmd[1] == "1") {
 clientMessage("§6§lGamemode has been changed to Creative!");
+}
+if(cmd[0] == "full" && cmd[1] == "hunger") {
+Player.setHunger(20);
+}
+if(cmd[0] == "full" && cmd[1] == "hunger") {
+clientMessage("§6§lHunger has been restored to full")
 }
 if(cmd[0] == "rain") {
 Level.setRainLevel(1);
@@ -558,6 +521,15 @@ clientMessage(" §6§l/Particles on/off §3- to toggle All particles on/off")
 if(cmd[0] == "help" && cmd[1] == "4") {
 clientMessage(" §6§l/lvl §3- sets your current level")
 }
+if(cmd[0] == "help" && cmd[1] == "4") {
+clientMessage(" §6§l/rain §3- sets the weather to rain")
+}
+if(cmd[0] == "help" && cmd[1] == "4") {
+clientMessage(" §6§l/lightning §3- sets the weather to thunder storm")
+}
+if(cmd[0] == "help" && cmd[1] == "4") {
+clientMessage(" §6§l/full hunger §3- sets the hunger bar to full")
+}
 if(cmd[0] == "credits")
 {
 clientMessage("§l@tylernomc - he helped me a lot on this project, A big Thanks to him!")
@@ -601,7 +573,7 @@ ModPE.showTipMessage(ChatColor.AQUA + "X: " + Math.round(Player.getX()) + ChatCo
 Math.round(Player.getY()) + ChatColor.AQUA + " Z: " + Math.round(Player.getZ()));
 }
 if(spam){
-clientMessage("§4§lSPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM")
+Server.sendChat("§4§lSPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM SPAM")
 }
 if(checkForUpdate==false) {
         print("Checking for an update");
