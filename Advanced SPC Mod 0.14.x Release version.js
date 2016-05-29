@@ -102,7 +102,7 @@ function updateVersion() {
                             try {
                                 net.zhuoweizhang.mcpelauncher.ScriptManager.setEnabled(modpeFile, false);
                                 net.zhuoweizhang.mcpelauncher.ScriptManager.setEnabled(modpeFile, true);
-                                clientMessage("[ASPC] The OPTIFINE Mod has been downloaded and enabled!" + ChatColor.GOLD + "Please Restart Blocklauncher now!");
+                                clientMessage("[ASPC] The ASPC Mod has been downloaded and enabled!" + ChatColor.GOLD + "Please Restart Blocklauncher now!");
                                    
                             }
                             catch(err) {
