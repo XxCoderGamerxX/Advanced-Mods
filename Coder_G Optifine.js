@@ -21,7 +21,7 @@
 //twitter: @Coder_G//
 
 //Update Code//
-var version="2.0";
+var version="2.1";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -242,7 +242,7 @@ loadresult = false;
 loaddata = false;
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.14.0");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "2.0 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "2.1 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6§lUse /help 1 and Have Fun!");
