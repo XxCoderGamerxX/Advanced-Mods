@@ -18,7 +18,7 @@
 //I can teach you so please don't steal codes//
 
 //Update Code//
-var version="4.4";
+var version="4.5";
 var checkForUpdate=false;
 var updateWindow=false;
 var newUpdate;
@@ -129,7 +129,7 @@ function updateVersion() {
 
 function newLevel(){
 clientMessage(ChatColor.AQUA + "Advanced Single Player Commands for 0.14.0");
-clientMessage("§6§lVersion " + ChatColor.GREEN + "4.4 RELEASE");
+clientMessage("§6§lVersion " + ChatColor.GREEN + "4.5 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
 clientMessage("§6Use §2§l/help 1");
