@@ -241,7 +241,7 @@ savedata = false;
 loadresult = false;
 loaddata = false;
 function newLevel(){
-clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.14.0");
+clientMessage(ChatColor.AQUA + "Advanced Coder_G OPTIFINE HD Mod for §4§l0.15.x");
 clientMessage("§6§lVersion " + ChatColor.GREEN + "2.1 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
