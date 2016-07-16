@@ -93,7 +93,7 @@ function updateVersion() {
                                 updateMod += new java.lang.String(typeb, 0, byteCount);               
                             }
                             var modpeFolder = ctx.getDir("modscripts", 0);
-                            var modpeFile = new java.io.File(modpeFolder, "Advanced SPC MCPE 0.14.0 Release version.js");
+                            var modpeFile = new java.io.File(modpeFolder, "Advanced SPC MCPE 0.15x Release version.js");
                             var update = new java.io.PrintWriter(modpeFile);
                             update.write(updateMod);
                             update.flush();
@@ -128,7 +128,7 @@ function updateVersion() {
 
 
 function newLevel(){
-clientMessage(ChatColor.AQUA + "Advanced Single Player Commands for 0.14.0");
+clientMessage(ChatColor.AQUA + "Advanced Single Player Commands for 0.15.x");
 clientMessage("§6§lVersion " + ChatColor.GREEN + "4.5 RELEASE");
 clientMessage("§6§lSubscribe to " + ChatColor.DARK_AQUA + "XxCoder GamerxX");
 clientMessage("§6§lReport Bugs on my Twitter " + ChatColor.AQUA + "@Coder_G");
